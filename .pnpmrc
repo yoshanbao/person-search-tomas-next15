@@ -1,0 +1,9 @@
+# pnpm configuration
+# Enable build scripts for all packages
+ignore-scripts=false
+
+# Allow the following packages to run build scripts
+unsafe-perm=true
+
+# Suppress security warnings for trusted packages
+allow-scripts=true
