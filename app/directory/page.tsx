@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button'
 import { Plus } from 'lucide-react'
 import { UserFormDialog } from '@/app/components/user-form-dialog'
 
+export const dynamic = 'force-dynamic'
+
 export default async function DirectoryPage() {
   const users = await getAllUsers()
 
