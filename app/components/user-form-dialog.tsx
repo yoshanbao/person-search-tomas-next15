@@ -1,7 +1,7 @@
 'use client'
 
 import { addUser } from '@/app/actions/actions'
-import { userFormSchema, UserFormData } from '@/app/actions/schemas'
+import { userFormSchema, UserFormData, User } from '@/app/actions/schemas'
 import { UserForm } from './user-form'
 import MutableDialog, { ActionState } from '@/components/mutable-dialog'
 import { useState, ReactNode } from 'react'
@@ -15,7 +15,7 @@ export function UserFormDialog({ children }: UserFormDialogProps) {
   const [open, setOpen] = useState(false)
   const router = useRouter()
 
-  const handleAddUser = async (data: UserFormData): Promise<ActionState> => {
+  const handleAddUser = async (data: UserFormData): Promise<ActionState<User>> => {
     try {
       const newUser = await addUser(data)
       setOpen(false)
