@@ -1,0 +1,13 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+  <!-- Top curve (dark navy blue) -->
+  <path d="M 50 280 Q 150 150, 450 180 Q 650 210, 750 320" stroke="#0f3a7d" stroke-width="70" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Bottom curve (teal cyan) -->
+  <path d="M 320 350 Q 450 380, 720 310" stroke="#4a9fb5" stroke-width="50" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Head detail (dark blue circle) -->
+  <circle cx="760" cy="300" r="25" fill="#0f3a7d"/>
+  
+  <!-- Eye/nostril detail -->
+  <circle cx="780" cy="295" r="6" fill="#4a9fb5"/>
+</svg>
