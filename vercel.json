@@ -4,6 +4,9 @@
     "installCommand": "pnpm install",
     "framework": "nextjs",
     "outputDirectory": ".next",
+    "env": {
+        "NPM_CONFIG_UNSAFE_PERM": "true"
+    },
     "git": {
         "deploymentEnabled": {
             "main": true,
