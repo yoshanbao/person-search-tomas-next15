@@ -3,7 +3,13 @@
     "buildCommand": "pnpm run build",
     "installCommand": "pnpm install",
     "framework": "nextjs",
-    "outputDirectory": ".next"
+    "outputDirectory": ".next",
+    "git": {
+        "deploymentEnabled": {
+            "main": true,
+            "next15": true
+        }
+    }
 }
   
   
