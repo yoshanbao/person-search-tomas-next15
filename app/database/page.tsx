@@ -72,48 +72,6 @@ const userSchema = z.object({
             </div>
           </CardContent>
         </Card>
-                    <span className="text-primary font-semibold">✓</span>
-                    <div>
-                      <p className="font-semibold text-sm">Real-time Search</p>
-                      <p className="text-sm text-muted-foreground">Instant filtering by contact name as you type</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-3">
-                    <span className="text-primary font-semibold">✓</span>
-                    <div>
-                      <p className="font-semibold text-sm">Column Sorting</p>
-                      <p className="text-sm text-muted-foreground">Click headers to sort by name, email, or phone</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-3">
-                    <span className="text-primary font-semibold">✓</span>
-                    <div>
-                      <p className="font-semibold text-sm">CRUD Actions</p>
-                      <p className="text-sm text-muted-foreground">Edit and delete buttons integrated in each row</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-3">
-                    <span className="text-primary font-semibold">✓</span>
-                    <div>
-                      <p className="font-semibold text-sm">Responsive Design</p>
-                      <p className="text-sm text-muted-foreground">Adapts seamlessly to mobile and desktop screens</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-muted p-4 rounded">
-                <h4 className="font-semibold mb-2">Implementation Files</h4>
-                <ul className="text-sm space-y-1 list-disc ml-4">
-                  <li><code>app/components/data-table.tsx</code> - Main datatable component</li>
-                  <li><code>app/components/directory-columns.tsx</code> - Column definitions and actions</li>
-                  <li><code>app/components/directory-table-wrapper.tsx</code> - Server/client component bridge</li>
-                  <li><code>app/directory/page.tsx</code> - Directory page using the datatable</li>
-                </ul>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
 
         <Card className="mb-8">
           <CardHeader>
