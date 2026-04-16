@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Github, ExternalLink, Star, Code2 } from 'lucide-react'
 
 export default function GitHubPage() {
-  const repoUrl = "https://github.com/yourusername/yoshanbao"
+  const repoUrl = "https://github.com/yoshanbao/person-search-tomas-next15"
   
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
