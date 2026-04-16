@@ -20,29 +20,29 @@ export default function UserCard({ user }: UserCardProps) {
   }
 
   return (
-    <Card className="w-full max-w-md mx-auto">
-      <CardHeader className="flex flex-row items-center gap-4">
-        <Avatar className="w-16 h-16">
+    <Card className="w-full mx-auto">
+      <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <Avatar className="w-12 h-12 sm:w-16 sm:h-16">
           <AvatarFallback>{user.name.split(' ').map((n) => n[0]).join('')}</AvatarFallback>
         </Avatar>
-        <div className="flex flex-col">
-          <CardTitle className="text-2xl">{user.name}</CardTitle>
+        <div className="flex flex-col flex-1">
+          <CardTitle className="text-xl sm:text-2xl">{user.name}</CardTitle>
           <Badge variant="secondary" className="w-fit mt-1">ID: {user.id}</Badge>
         </div>
       </CardHeader>
-      <CardContent className="grid gap-4">
-        <div className="flex items-center gap-2">
-          <Phone className="w-4 h-4 text-muted-foreground" />
-          <span>{user.phoneNumber}</span>
+      <CardContent className="grid gap-3 sm:gap-4">
+        <div className="flex items-center gap-2 text-sm sm:text-base">
+          <Phone className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+          <span className="break-all">{user.phoneNumber}</span>
         </div>
         {user.email && (
-          <div className="flex items-center gap-2">
-            <Mail className="w-4 h-4 text-muted-foreground" />
-            <span>{user.email}</span>
+          <div className="flex items-center gap-2 text-sm sm:text-base">
+            <Mail className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+            <span className="break-all">{user.email}</span>
           </div>
         )}
       </CardContent>
-      <CardFooter className="flex justify-between items-center">
+      <CardFooter className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-2">
         <DeleteButton userId={user.id} />
         <UserEditDialog user={user} /> 
       </CardFooter>

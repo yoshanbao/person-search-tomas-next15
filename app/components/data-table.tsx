@@ -60,24 +60,24 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="space-y-4">
-      <div className="flex gap-2">
+      <div className="flex gap-2 flex-col sm:flex-row">
         <Input
           placeholder="Filter by name..."
           value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("name")?.setFilterValue(event.target.value)
           }
-          className="max-w-sm"
+          className="w-full sm:max-w-sm"
         />
       </div>
-      <div className="rounded-md border">
-        <Table>
+      <div className="rounded-md border overflow-x-auto">
+        <Table className="min-w-full">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead key={header.id} className="text-xs sm:text-sm">
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -98,7 +98,7 @@ export function DataTable<TData, TValue>({
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell key={cell.id} className="text-xs sm:text-sm py-2 px-2 sm:px-4">
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </TableCell>
                   ))}
@@ -106,7 +106,7 @@ export function DataTable<TData, TValue>({
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={columns.length} className="h-24 text-center">
+                <TableCell colSpan={columns.length} className="h-24 text-center text-sm">
                   No results.
                 </TableCell>
               </TableRow>
@@ -114,8 +114,8 @@ export function DataTable<TData, TValue>({
           </TableBody>
         </Table>
       </div>
-      <div className="flex items-center justify-between space-x-2 py-4">
-        <div className="text-sm text-muted-foreground">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 py-4">
+        <div className="text-xs sm:text-sm text-muted-foreground order-2 sm:order-1">
           Showing {table.getState().pagination.pageIndex * table.getState().pagination.pageSize + 1} to{" "}
           {Math.min(
             (table.getState().pagination.pageIndex + 1) * table.getState().pagination.pageSize,
@@ -123,23 +123,25 @@ export function DataTable<TData, TValue>({
           )}{" "}
           of {table.getFilteredRowModel().rows.length} results
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 w-full sm:w-auto order-1 sm:order-2">
           <Button
             variant="outline"
             size="sm"
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
+            className="flex-1 sm:flex-initial text-xs sm:text-sm"
           >
             <ChevronLeft className="h-4 w-4" />
-            Previous
+            <span className="hidden sm:inline">Previous</span>
           </Button>
           <Button
             variant="outline"
             size="sm"
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
+            className="flex-1 sm:flex-initial text-xs sm:text-sm"
           >
-            Next
+            <span className="hidden sm:inline">Next</span>
             <ChevronRight className="h-4 w-4" />
           </Button>
         </div>

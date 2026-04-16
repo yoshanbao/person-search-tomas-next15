@@ -12,7 +12,7 @@
 - ✏️ **Full CRUD Operations**: Create, read, update, and delete contacts seamlessly
 - 🎨 **Modern UI**: Built with Shadcn/ui components and Tailwind CSS
 - 🌓 **Dark/Light Theme**: Complete theme support with next-themes
-- 📱 **Responsive Design**: Fully responsive across all devices
+- 📱 **Responsive Design**: Fully responsive across all devices (mobile, tablet, desktop)
 - ✅ **Type-Safe**: Full TypeScript support with Zod schema validation
 - 🚀 **Performance Optimized**: Next.js 16 with Turbopack and server components
 
@@ -23,6 +23,52 @@
 - **About** (`/about`) - Application architecture and technology stack
 - **Database** (`/database`) - Database schema and implementation details
 - **GitHub** (`/github`) - Repository information and project structure
+
+---
+
+## 📱 Mobile-First Responsive Design
+
+Yoshanbao is fully optimized for mobile devices with a mobile-first approach using Tailwind CSS responsive breakpoints.
+
+### Mobile Features
+
+- **Responsive Navigation**: Hamburger menu on mobile (< 768px), full navigation on desktop
+- **Touch-Friendly Interface**: All buttons and interactive elements are properly sized for mobile (44x44px minimum)
+- **Adaptive Layouts**: Components stack vertically on mobile and expand horizontally on larger screens
+- **Optimized Tables**: Data tables have horizontal scrolling on mobile for better readability
+- **Full-Width Forms**: Buttons and forms adapt to mobile screens for better usability
+- **Responsive Typography**: Text sizes scale appropriately across all device sizes
+
+### Mobile Screenshots
+
+**Mobile Home Page** - Clean, intuitive search interface optimized for mobile:
+- Responsive heading that scales with screen size
+- Full-width search input for easy interaction
+- Large touch targets for buttons
+- Optimized "How it works" section
+
+**Mobile Directory with Navigation Menu**:
+- Hamburger menu toggles on mobile devices
+- All navigation links accessible and organized vertically
+- Theme toggle always visible
+- Full-width "Add Person" button on mobile
+
+**Mobile Directory Table**:
+- Horizontal scrolling for contact information
+- Responsive table cells with appropriate padding
+- Compact view on small screens
+- Pagination controls adapt to mobile layout
+
+### Responsive Breakpoints
+
+- **Mobile (< 640px)**: Optimized for phones in portrait mode
+- **Small (640px - 768px)**: Enhanced layout for small tablets and landscape phones
+- **Medium (768px - 1024px)**: Tablet-optimized layout
+- **Large (1024px+)**: Full desktop experience
+
+For detailed mobile optimization information, see [docs/mobile-optimization.md](docs/mobile-optimization.md).
+
+---
 
 ## Visual Guide - Core Features Walkthrough
 
@@ -99,8 +145,6 @@ The datatable is built with TanStack React Table, featuring advanced data manage
 - DataTable component in `app/components/data-table.tsx`
 - Server-side data fetching with `getAllUsers()` action
 - Client-side filtering, sorting, and pagination with React hooks
-
----
 
 ## Description
 
@@ -358,6 +402,78 @@ The `MutableDialog` component currently uses a custom `ActionState` type to hand
 - Refactor error handling and success notifications to leverage React's server-side error handling.
 
 This will be addressed in a future update to ensure the `MutableDialog` component remains aligned with React 19's capabilities.
+
+---
+
+## 🎨 Recent Mobile Optimization Update (April 2026)
+
+### Mobile-First Responsive Design Implementation
+
+The application has been fully optimized for mobile and tablet viewing with a comprehensive mobile-first responsive design approach using Tailwind CSS.
+
+#### Key Improvements
+
+1. **Responsive Navigation Bar**
+   - Hamburger menu for mobile devices (< 768px)
+   - Full navigation bar on desktop (≥ 768px)
+   - Theme toggle always accessible
+   - Smooth animations and transitions
+   - Touch-friendly menu interactions
+
+2. **Typography & Spacing**
+   - Responsive heading sizes: `text-2xl sm:text-3xl lg:text-4xl`
+   - Adaptive text scaling for all screen sizes
+   - Responsive padding and margins throughout
+   - Better readability on small screens
+
+3. **Component Optimizations**
+   - **User Card**: Stacks vertically on mobile, horizontal on desktop
+   - **Data Table**: Horizontal scrolling on mobile with compact padding
+   - **Buttons**: Full-width on mobile, auto-width on desktop
+   - **Forms**: Optimized input sizes for mobile touch interaction
+   - **Search Input**: Full-width responsive behavior
+
+4. **Layout Enhancements**
+   - Flexible grid layouts that adapt to screen size
+   - Proper max-width constraints with responsive containers
+   - Efficient use of Tailwind breakpoints (sm, md, lg)
+   - Proper overflow handling for mobile devices
+
+5. **All Pages Optimized**
+   - ✅ Home page - Responsive typography and spacing
+   - ✅ Directory page - Mobile-friendly headers and full-width controls
+   - ✅ About page - Grid layout adapts (1 col mobile, 2 col tablet+)
+   - ✅ Database page - Better code block handling
+   - ✅ GitHub page - Compact responsive layout
+
+### Mobile Testing Coverage
+
+- Tested on iPhone 12 viewport (390x844)
+- Verified on various tablet sizes
+- Desktop experience maintained
+- All interactive elements properly sized (44x44px minimum)
+- Proper contrast and accessibility maintained
+
+### Browser Support
+
+- iOS Safari 12+
+- Chrome Android 87+
+- Firefox Android 88+
+- Samsung Internet 14+
+- All modern browsers with CSS Grid and Flexbox support
+
+### Responsive Breakpoints Used
+
+```
+sm:  640px  - Small tablets and landscape phones
+md:  768px  - Tablets (where hamburger menu hides)
+lg:  1024px - Large tablets and desktops
+xl:  1280px - Large desktops
+```
+
+For detailed implementation notes, see [docs/mobile-optimization.md](docs/mobile-optimization.md).
+
+---
 
 ## Contributing
 
