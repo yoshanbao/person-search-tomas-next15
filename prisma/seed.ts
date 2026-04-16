@@ -1,8 +1,22 @@
+import "dotenv/config";
 import { PrismaClient } from "../lib/prisma-generated/client";
+import { PrismaPg } from "@prisma/adapter-pg";
+
+const connectionString = process.env.DATABASE_URL;
+
+if (!connectionString) {
+  throw new Error("DATABASE_URL environment variable is not set");
+}
+
+console.log("Connecting to database:", connectionString.substring(0, 40) + "...");
+
+const pool = new PrismaPg({
+  connectionString,
+});
 
 const prisma = new PrismaClient({
-  accelerateUrl: process.env.DATABASE_ACCELERATE_URL,
-} as any);
+  adapter: pool,
+});
 
 async function main() {
   // Clear existing data
