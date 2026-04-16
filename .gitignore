@@ -42,3 +42,5 @@ person-search-tomas/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/lib/generated/prisma
