@@ -219,7 +219,7 @@ The Delete Person feature demonstrates the delete operation:
 ### MCP Integration with Claude Desktop
 
 #### 5. Claude Developer Settings - MCP Configuration
-![Claude Developer Settings](img/mcp-person.png)
+![Claude Developer Settings](img/mcp-person-search.png)
 
 This screenshot proves the MCP server is properly configured in Claude Desktop:
 - Shows "person-search" listed in the Model Context Protocol section
