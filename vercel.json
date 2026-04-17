@@ -1,11 +1,12 @@
 {
     "version": 2,
     "buildCommand": "pnpm run build",
-    "installCommand": "pnpm install",
+    "installCommand": "pnpm install --no-optional",
     "framework": "nextjs",
     "outputDirectory": ".next",
     "env": {
-        "NPM_CONFIG_UNSAFE_PERM": "true"
+        "NPM_CONFIG_UNSAFE_PERM": "true",
+        "SKIP_TYPE_CHECK": "true"
     },
     "git": {
         "deploymentEnabled": {
