@@ -257,11 +257,13 @@ Claude modifies existing user records:
 #### 9. Claude Delete User Example
 ![Claude Delete User](img/claude-delete.png)
 
-Claude deletes users from the database:
-- Accepts natural language deletion requests
-- Confirms which user was deleted
+Claude successfully deletes Sarah Johnson (and other users) from the database:
+- Claude receives natural language deletion request: "Delete Sarah Johnson from the database"
+- Uses the `delete_user` MCP tool to remove the record
+- Returns confirmation showing which user was deleted (Sarah Johnson)
 - Provides feedback on successful deletion
-- Database is immediately updated
+- Database is immediately updated - Sarah Johnson record removed
+- Demonstrates complete delete workflow through Claude integration
 
 ---
 
@@ -270,11 +272,13 @@ Claude deletes users from the database:
 #### 10. Neon Database - Sarah Johnson Creation Evidence
 ![Neon Database Creation](img/neon-data.png)
 
-This screenshot shows the exact moment Sarah Johnson was created in the Neon PostgreSQL database:
-- User ID and creation timestamp visible
-- Full contact information stored: Name, Email, Phone
-- Demonstrates real data persistence
-- Proof that MCP operations actually modify the database
+This screenshot proves Sarah Johnson was successfully created in the Neon PostgreSQL database:
+- Shows Sarah Johnson's record in the Neon database interface
+- Displays User ID and creation timestamp
+- Full contact information persisted: Name, Email, Phone (0422018632)
+- Demonstrates real data persistence in the cloud database
+- Proof that MCP operations through Claude actually modify the real database
+- Verifies end-to-end integration: Claude → MCP Server → Prisma → Neon PostgreSQL
 
 #### 11. Neon Database - Complete Database View
 ![Neon Database](img/neon-database.png)
@@ -285,6 +289,17 @@ The complete Neon database showing all managed contacts:
 - Demonstrates data integrity and relationships
 - Shows live Neon database connection working correctly
 - Proves all CRUD operations successfully persist to the database
+
+#### 12. Light Mode Theme - TanStack Table Interface
+![Light Mode Interface](img/tanstak-lightmode.png)
+
+The application supports dynamic theme switching with a clean light mode:
+- Shows the TanStack React Table in light mode
+- Directory page displays with light background and dark text for optimal readability
+- Theme toggle button in navbar allows seamless switching between light and dark modes
+- All UI components (buttons, inputs, tables) adapt to light theme
+- Demonstrates full responsiveness of the theme system
+- Users can switch themes at any time while maintaining functionality
 
 ---
 
