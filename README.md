@@ -6,15 +6,15 @@
 
 ### Key Highlights
 
-- 📋 **Directory Management**: Browse and manage 30+ sample contacts in a searchable directory
-- 📊 **Advanced DataTable**: Powered by TanStack React Table with pagination, sorting, and filtering
-- 🔍 **Real-time Search**: Instant search filtering across all contact fields
-- ✏️ **Full CRUD Operations**: Create, read, update, and delete contacts seamlessly
-- 🎨 **Modern UI**: Built with Shadcn/ui components and Tailwind CSS
-- 🌓 **Dark/Light Theme**: Complete theme support with next-themes
-- 📱 **Responsive Design**: Fully responsive across all devices (mobile, tablet, desktop)
-- ✅ **Type-Safe**: Full TypeScript support with Zod schema validation
-- 🚀 **Performance Optimized**: Next.js 16 with Turbopack and server components
+- Directory Management: Browse and manage 30+ sample contacts in a searchable directory
+- Advanced DataTable: Powered by TanStack React Table with pagination, sorting, and filtering
+- Real-time Search: Instant search filtering across all contact fields
+- Full CRUD Operations: Create, read, update, and delete contacts seamlessly
+- Modern UI: Built with Shadcn/ui components and Tailwind CSS
+- Dark/Light Theme: Complete theme support with next-themes
+- Responsive Design: Fully responsive across all devices (mobile, tablet, desktop)
+- Type-Safe: Full TypeScript support with Zod schema validation
+- Performance Optimized: Next.js 16 with Turbopack and server components
 
 ### Application Pages
 
@@ -26,7 +26,7 @@
 
 ---
 
-## 🤖 MCP (Model Context Protocol) Integration
+## MCP (Model Context Protocol) Integration
 
 Yoshanbao includes a complete MCP server that enables **Claude Desktop** to perform database CRUD operations through natural language!
 
@@ -169,7 +169,7 @@ npx prisma studio    # Opens database UI
 
 ---
 
-## 📸 Screenshots & Proof of Concept
+## Screenshots & Proof of Concept
 
 ### Web Application Screenshots
 
@@ -303,7 +303,7 @@ The application supports dynamic theme switching with a clean light mode:
 
 ---
 
-## 🔄 Complete Data Flow Summary
+## Complete Data Flow Summary
 
 1. **User creates/updates/deletes contact via web app**
    - Data validated with Zod schemas
@@ -326,7 +326,7 @@ The application supports dynamic theme switching with a clean light mode:
 
 ---
 
-## 📱 Mobile-First Responsive Design
+## Mobile-First Responsive Design
 
 Yoshanbao is fully optimized for mobile devices with a mobile-first approach using Tailwind CSS responsive breakpoints.
 
