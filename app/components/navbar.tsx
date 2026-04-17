@@ -14,6 +14,8 @@ export default function Navbar() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/directory', label: 'Directory', icon: Users },
+    { href: '/mcp-setup', label: 'MCP Setup' },
+    { href: '/mcp-demo', label: 'MCP Demo' },
     { href: '/about', label: 'About' },
     { href: '/database', label: 'Database' },
     { href: '/github', label: 'GitHub' },

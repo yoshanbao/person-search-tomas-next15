@@ -74,8 +74,10 @@ function Architecture() {
             <ul className="space-y-1 ml-4 list-disc">
               <li><code>/</code> - Home page with user search</li>
               <li><code>/directory</code> - Contact directory</li>
+              <li><code>/mcp-setup</code> - MCP server setup guide</li>
+              <li><code>/mcp-demo</code> - Live MCP CRUD demo</li>
+              <li><code>/github</code> - GitHub repositories</li>
               <li><code>/about</code> - App info</li>
-              <li><code>/github</code> - GitHub link</li>
               <li><code>/database</code> - Database docs</li>
             </ul>
           </div>
@@ -98,6 +100,51 @@ function Architecture() {
               <li><code>deleteUser()</code> - Remove contact</li>
             </ul>
           </div>
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
+
+function MCPIntegration() {
+  return (
+    <Card className="mb-6 sm:mb-8 bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200">
+      <CardHeader>
+        <CardTitle className="text-lg sm:text-xl">🔧 MCP Integration</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <p className="text-sm sm:text-base">
+          This app includes a complete Model Context Protocol (MCP) server that enables Claude Desktop to perform full CRUD operations on the Person database.
+        </p>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <div>
+            <h4 className="font-semibold mb-2 text-sm">MCP Capabilities</h4>
+            <ul className="space-y-1 text-xs sm:text-sm ml-4 list-disc">
+              <li>Create new persons</li>
+              <li>Search persons by name/ID</li>
+              <li>Update person information</li>
+              <li>Delete persons</li>
+              <li>List all persons</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-2 text-sm">Tech Stack</h4>
+            <ul className="space-y-1 text-xs sm:text-sm ml-4 list-disc">
+              <li>@modelcontextprotocol/sdk</li>
+              <li>Prisma v7 with PG adapter</li>
+              <li>PostgreSQL (Neon)</li>
+              <li>TypeScript</li>
+              <li>Zod validation</li>
+            </ul>
+          </div>
+        </div>
+        <div className="flex flex-wrap gap-2 mt-4">
+          <Button asChild size="sm" className="text-xs sm:text-sm">
+            <Link href="/mcp-setup">Setup Guide</Link>
+          </Button>
+          <Button asChild variant="outline" size="sm" className="text-xs sm:text-sm">
+            <Link href="/mcp-demo">Live Demo</Link>
+          </Button>
         </div>
       </CardContent>
     </Card>
@@ -157,6 +204,7 @@ export default function AboutPage() {
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8">About Yoshanbao</h1>
         <ProjectOverview />
         <TechnologyStack />
+        <MCPIntegration />
         <Architecture />
         <QuickLinks />
         <Button asChild variant="link" className="mt-4 text-xs sm:text-sm">

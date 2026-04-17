@@ -26,6 +26,291 @@
 
 ---
 
+## 🤖 MCP (Model Context Protocol) Integration
+
+Yoshanbao includes a complete MCP server that enables **Claude Desktop** to perform database CRUD operations through natural language!
+
+### MCP Setup Guide
+
+#### Prerequisites
+- Node.js 18+
+- pnpm package manager
+- Claude Desktop application
+- PostgreSQL database (Neon or local)
+
+#### Step 1: Install MCP Server Dependencies
+```bash
+cd mcp-server
+pnpm install
+```
+
+#### Step 2: Configure Environment
+Create `mcp-server/.env`:
+```
+DATABASE_URL=postgresql://user:password@host:5432/dbname
+NODE_ENV=production
+```
+
+#### Step 3: Build the MCP Server
+```bash
+cd mcp-server
+pnpm build
+```
+
+Verify the build: Check that `mcp-server/dist/index.js` exists ✓
+
+#### Step 4: Configure Claude Desktop
+Edit `~/.claude_desktop_config.json`:
+
+**Windows:**
+```json
+{
+  "mcpServers": {
+    "person-search": {
+      "command": "node",
+      "args": ["C:\\Users\\YourUsername\\path\\to\\person-search-tomas-next15\\mcp-server\\dist\\index.js"],
+      "env": {
+        "DATABASE_URL": "your-database-url"
+      }
+    }
+  }
+}
+```
+
+**Mac/Linux:**
+```json
+{
+  "mcpServers": {
+    "person-search": {
+      "command": "node",
+      "args": ["/Users/username/path/to/person-search-tomas-next15/mcp-server/dist/index.js"],
+      "env": {
+        "DATABASE_URL": "your-database-url"
+      }
+    }
+  }
+}
+```
+
+#### Step 5: Restart Claude Desktop
+Close Claude Desktop completely and reopen it.
+
+### MCP Demo - Use Claude to Manage Your Database
+
+Once configured, you can use Claude Desktop to perform all database operations:
+
+#### Create a Person
+```
+"Create a new user named John Smith with email john@smith.com and phone 0422018632"
+```
+Claude responds: Creates user and returns the ID and details.
+
+#### Search for Persons
+```
+"Find all users named John"
+"Search for users with email smith"
+"Get user with ID abc123xyz"
+```
+Claude responds: Returns matching user records.
+
+#### Update a Person
+```
+"Update John Smith's email to john.new@example.com"
+"Change user abc123 phone to 0422999888"
+```
+Claude responds: Updates and returns the modified user.
+
+#### Delete a Person
+```
+"Delete John Smith from the database"
+"Remove user abc123"
+```
+Claude responds: Deletes and confirms removal.
+
+#### List All Persons
+```
+"Show me all users in the database"
+"List everyone"
+```
+Claude responds: Returns all persons with their details.
+
+### MCP Tools Available
+
+| Tool | Description | Parameters |
+|------|-------------|-----------|
+| `create_user` | Create new person | name, email, phoneNumber |
+| `read_user` | Search or get person | userId (optional), searchQuery (optional) |
+| `update_user` | Modify person | userId, name (opt), email (opt), phoneNumber (opt) |
+| `delete_user` | Remove person | userId |
+| `list_all_users` | Get all persons | (none) |
+
+### MCP Validation Rules
+
+- **Email**: Must be valid format (e.g., john@example.com)
+- **Phone**: Must be Australian format (04xxxxxxxx) - 10 digits starting with 04
+- **Name**: Minimum 2 characters
+- **Email**: Must be unique in database
+
+### Testing the MCP Server
+
+#### Run Locally
+```bash
+cd mcp-server
+pnpm dev    # Development with hot reload
+# or
+pnpm start  # Production mode
+```
+
+#### View Database
+```bash
+cd mcp-server
+npx prisma studio    # Opens database UI
+```
+
+---
+
+## 📸 Screenshots & Proof of Concept
+
+### Web Application Screenshots
+
+#### 1. Directory Management Page
+![Directory Page](img/directory-img.png)
+
+The main directory page showcases the complete contact management interface with:
+- Clean, organized table displaying all 30+ contacts
+- Real-time search functionality
+- Sortable columns (Name, Email, Phone)
+- Pagination controls for easy navigation
+- Action buttons (Edit, Delete) on each row
+- "Add Person" button for quick contact creation
+
+#### 2. Add Person (Create Operation)
+![Add Person Dialog](img/claude-add.png)
+
+The Add Person dialog demonstrates the create functionality:
+- Form with Name, Email, and Phone fields
+- Client-side and server-side validation
+- Success notification upon submission
+- Automatically updates the directory table
+- Fields are cleared after successful submission
+
+#### 3. Edit Person (Update Operation)
+![Edit Person Dialog](img/claude-update.png)
+
+The Edit Person feature shows the update capability:
+- Pre-populated form with existing contact data
+- Ability to modify any contact field
+- Validation ensures data integrity
+- Updated record reflects immediately in the table
+- Confirmation feedback after successful update
+
+#### 4. Delete Person (Delete Operation)
+![Delete Confirmation](img/claude-delete.png)
+
+The Delete Person feature demonstrates the delete operation:
+- Confirmation dialog before deletion
+- Prevents accidental deletion
+- Record removed immediately from the table
+- Toast notification confirming deletion
+- Database updated in real-time
+
+---
+
+### MCP Integration with Claude Desktop
+
+#### 5. Claude Developer Settings - MCP Configuration
+![Claude Developer Settings](img/mcp-person.png)
+
+This screenshot proves the MCP server is properly configured in Claude Desktop:
+- Shows "person-search" listed in the Model Context Protocol section
+- Displays the MCP server status and configuration
+- Confirms the server is available for Claude to use
+- Demonstrates successful setup of Claude Desktop integration
+
+#### 6. Claude Create User Example
+![Claude Create User](img/claude-add.png)
+
+Claude successfully creates a user through the MCP interface:
+- User prompts Claude: "Create a new user named Sarah Johnson with email sarah@example.com and phone +1-555-0123"
+- Claude uses the `create_user` MCP tool
+- Returns confirmation with new user ID
+- Database is updated with the new contact
+
+#### 7. Claude Read User Example
+![Claude Read User](img/claude-read.png)
+
+Claude reads and searches users from the database:
+- Claude retrieves specific users by ID
+- Searches users by name with natural language
+- Returns formatted user data with all fields
+- Demonstrates read capabilities of the MCP
+
+#### 8. Claude Update User Example
+![Claude Update User](img/claude-update.png)
+
+Claude modifies existing user records:
+- Updates contact information based on natural language requests
+- Returns the updated user record
+- Shows before/after values
+- Confirms successful update in database
+
+#### 9. Claude Delete User Example
+![Claude Delete User](img/claude-delete.png)
+
+Claude deletes users from the database:
+- Accepts natural language deletion requests
+- Confirms which user was deleted
+- Provides feedback on successful deletion
+- Database is immediately updated
+
+---
+
+### Database Proof of Concept
+
+#### 10. Neon Database - Sarah Johnson Creation Evidence
+![Neon Database Creation](img/neon-data.png)
+
+This screenshot shows the exact moment Sarah Johnson was created in the Neon PostgreSQL database:
+- User ID and creation timestamp visible
+- Full contact information stored: Name, Email, Phone
+- Demonstrates real data persistence
+- Proof that MCP operations actually modify the database
+
+#### 11. Neon Database - Complete Database View
+![Neon Database](img/neon-database.png)
+
+The complete Neon database showing all managed contacts:
+- All 30+ contacts with their complete information
+- Sarah Johnson entry visible among the records
+- Demonstrates data integrity and relationships
+- Shows live Neon database connection working correctly
+- Proves all CRUD operations successfully persist to the database
+
+---
+
+## 🔄 Complete Data Flow Summary
+
+1. **User creates/updates/deletes contact via web app**
+   - Data validated with Zod schemas
+   - Server action processes the request
+   - Prisma ORM updates PostgreSQL database (Neon)
+   - React component updates in real-time
+
+2. **Claude uses MCP to manage contacts**
+   - Claude sends natural language command
+   - MCP server interprets the request
+   - Database operation executed via Prisma
+   - Response returned to Claude with confirmation
+   - Data persisted to Neon PostgreSQL
+
+3. **Database proves it all works**
+   - Sarah Johnson record exists in Neon
+   - Timestamps show when records were created
+   - All CRUD operations leave permanent traces
+   - Live database connection maintains data integrity
+
+---
+
 ## 📱 Mobile-First Responsive Design
 
 Yoshanbao is fully optimized for mobile devices with a mobile-first approach using Tailwind CSS responsive breakpoints.
